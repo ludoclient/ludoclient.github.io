@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LudoClient — официальный сайт</title>
+    <meta name="description" content="LudoClient — эксплоиты, обходы античитов и уникальный софт для игр. Приобрети подписку с расширенными возможностями.">
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/ludoclient/ludoclient/refs/heads/main/static.png">
+    <link rel="stylesheet" href="sss.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <header class="hero">
+        <div class="logo-wrapper">
+            <img src="https://raw.githubusercontent.com/ludoclient/ludoclient/refs/heads/main/static.png" alt="LudoClient logo" class="logo-main">
+            <img src="https://raw.githubusercontent.com/ludoclient/ludoclient/refs/heads/main/neon.png" alt="LudoClient neon" class="logo-neon">
+        </div>
+        <h1>LudoClient</h1>
+        <p class="slogan">«Эксплоиты, обходы, лудомания — вот наше всё!»</p>
+        <div class="badge-group">
+            <span class="badge">UNDETECTED</span>
+            <span class="badge">EAC / BE / VAC BYPASS / PaperPlate</span>
+            <span class="badge">+3,500 активных лудоманов</span>
+        </div>
+    </header>
+
+    <div class="pricing-grid">
+        <div class="plan-card">
+            <div class="plan-header">
+                <h2>STATIC <span class="light">подписка</span></h2>
+                <div class="price-tag">
+                    <span class="currency">$</span><span class="price-num">0.99</span>
+                    <span class="period">/ месяц</span>
+                </div>
+                <div class="annual-price">Годовая подписка: <strong>$6</strong> <span class="save">экономия 49%</span></div>
+            </div>
+            <ul class="features">
+                <li>Полный набор эксплоитов v2.1</li>
+                <li>Обход VAC / EAC / BattlEye / PaperPlate</li>
+                <li>Иновационный эксплоиты от создателя</li>
+                <li>Базовая поддержка Discord</li>
+            </ul>
+            <button class="buy-btn" data-type="static" data-monthly="0.99" data-yearly="6">Приобрести Static</button>
+        </div>
+
+        <div class="plan-card prime">
+            <div class="prime-ribbon">★ РЕКОМЕНДУЕМ ★</div>
+            <div class="plan-header">
+                <h2>PRIME <span class="light">подписка</span></h2>
+                <div class="price-tag">
+                    <span class="currency">$</span><span class="price-num">4</span>
+                    <span class="period">/ месяц</span>
+                </div>
+                <div class="annual-price">Годовая подписка: <strong>$12.50</strong> <span class="save">экономия 74%</span></div>
+            </div>
+            <ul class="features">
+                <li>✨ Автоматические обновления без переустановки</li>
+                <li>✨ Доступ к пре-релизам за 48 часов</li>
+                <li>✨ Специальная роль на Discord-сервере</li>
+                <li>✨ Личный текстовый канал с VanyaPro228</li>
+                <li>✨ Уважение от сообщества лудиков</li>
+                <li>✨ Ранний доступ к новым функциям</li>
+            </ul>
+            <button class="buy-btn prime-btn" data-type="prime" data-monthly="4" data-yearly="12.50">Оформить Prime</button>
+        </div>
+    </div>
+
+    <div class="info-section">
+        <div class="info-card">
+            <h3>Приватный инжектор</h3>
+            <p>Собственная система инъекции с обходом антивирусов и античитов. Доступен во всех подписках LudoClient. Регулярные обновления под новые патчи игр.</p>
+        </div>
+        <div class="info-card">
+            <h3>Безопасность</h3>
+            <p>100% конфиденциальность данных. Ключи активируются один раз и привязываются к вашему железу. Система автоматической выдачи ключей после оплаты.</p>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>LudoClient — официальный сервис. Все предоставляемые инструменты предназначены для тестирования систем безопасности.</p>
+        <div class="social-links">
+            <span>Discord: discord.gg/ludoclient</span>
+            <span>Telegram: @ludoclient_support</span>
+            <span>E-mail: support@ludoclient.com</span>
+        </div>
+        <p class="copyright">© 2025 LudoClient. All rights reserved.</p>
+    </footer>
+</div>
+
+<div id="paymentModal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h3>Оформление подписки</h3>
+        <p class="modal-sub">Заполните данные для оплаты. После успешного платежа ключ будет сгенерирован автоматически.</p>
+        <form id="paymentForm">
+            <div class="input-group">
+                <label>Имя держателя карты</label>
+                <input type="text" id="cardName" placeholder="IVAN IVANOV" autocomplete="off" required>
+            </div>
+            <div class="input-group">
+                <label>Номер карты</label>
+                <input type="text" id="cardNumber" maxlength="19" placeholder="4242 4242 4242 4242" required>
+            </div>
+            <div class="row-flex">
+                <div class="input-group half">
+                    <label>Срок действия (MM/YY)</label>
+                    <input type="text" id="expiry" placeholder="12/28" maxlength="5" required>
+                </div>
+                <div class="input-group half">
+                    <label>CVV / CVC</label>
+                    <input type="password" id="cvv" maxlength="4" placeholder="123" required>
+                </div>
+            </div>
+            <div class="plan-selector">
+                <label>Подписка</label>
+                <select id="planSelect"></select>
+            </div>
+            <div id="paymentAmount" class="payment-amount"></div>
+            <button type="submit" class="generate-key-btn" id="payButton">Оплатить и получить ключ</button>
+        </form>
+        <div id="keyResult" class="key-result hidden">
+            <div class="key-success-icon">✓</div>
+            <p>Платеж успешно обработан!</p>
+            <p class="key-label">Ваш лицензионный ключ LudoClient:</p>
+            <code id="generatedKey">ludik://GG.xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</code>
+            <button id="copyKeyBtn" class="copy-btn">Копировать ключ в буфер</button>
+            <p class="key-warning">Сохраните ключ. Он будет активирован при первом входе в лаунчер.</p>
+        </div>
+    </div>
+</div>
+
+<script src="lox.js"></script>
+</body>
+</html>
