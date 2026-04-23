@@ -484,3 +484,29 @@ h1 {
 .hidden {
     display: none;
 }
+
+.ban-stat-badge {
+    background: linear-gradient(135deg, #2d1f3a 0%, #1a1a2e 100%);
+    border: 1px solid #ff6b6b;
+    box-shadow: 0 0 8px rgba(255, 107, 107, 0.3);
+    transition: all 0.2s ease;
+}
+
+.ban-stat-badge:hover {
+    background: linear-gradient(135deg, #3d2a4a 0%, #252540 100%);
+    border-color: #ff8888;
+    box-shadow: 0 0 12px rgba(255, 107, 107, 0.5);
+    transform: scale(1.02);
+}
+
+.ban-stat-link {
+    color: #ff8888 !important;
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+.ban-stat-link::before {
+    content: "▸";
+    color: #ff6b6b;
+}
