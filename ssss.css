@@ -1,0 +1,152 @@
+.ban-stat-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+    min-height: 100vh;
+}
+
+.ban-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.ban-header h1 {
+    font-size: 2.5rem;
+    background: linear-gradient(135deg, #ff6b6b, #c92a2a);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 0.5rem;
+}
+
+.ban-subtitle {
+    color: #ff8787;
+    font-size: 0.9rem;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.stat-card {
+    background: #1e1c30;
+    border: 1px solid #373970;
+    border-radius: 20px;
+    padding: 1.5rem;
+    transition: transform 0.2s;
+}
+
+.stat-card:hover {
+    transform: translateY(-3px);
+    border-color: #ff6b6b;
+}
+
+.stat-name {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.stat-percent {
+    font-size: 2rem;
+    font-weight: 800;
+    margin: 0.5rem 0;
+}
+
+.stat-change {
+    font-size: 0.85rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 20px;
+    display: inline-block;
+}
+
+.stat-change.up {
+    background: #2a3a2e;
+    color: #8effc1;
+}
+
+.stat-change.down {
+    background: #3a2a2e;
+    color: #ff8e8e;
+}
+
+.chart-container {
+    background: #1e1c30;
+    border: 1px solid #373970;
+    border-radius: 20px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.chart-title {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: #c4c7ff;
+    text-align: center;
+}
+
+.bar-chart {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.bar-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.bar-label {
+    width: 100px;
+    font-weight: 600;
+    color: #a0a3d4;
+}
+
+.bar-bg {
+    flex: 1;
+    height: 32px;
+    background: #0b0a17;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #ff6b6b, #c92a2a);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 10px;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 600;
+    transition: width 0.5s ease;
+}
+
+.back-link {
+    display: inline-block;
+    background: #373970;
+    padding: 0.6rem 1.2rem;
+    border-radius: 40px;
+    color: white;
+    text-decoration: none;
+    transition: background 0.2s;
+    margin-top: 1rem;
+}
+
+.back-link:hover {
+    background: #4a4c8c;
+}
+
+.update-time {
+    text-align: center;
+    font-size: 0.7rem;
+    color: #696b99;
+    margin-top: 2rem;
+}
