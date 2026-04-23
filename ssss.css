@@ -64,13 +64,13 @@
 }
 
 .stat-change.up {
-    background: #2a3a2e;
-    color: #8effc1;
+    background: #3a2a2e;
+    color: #ff8e8e;
 }
 
 .stat-change.down {
-    background: #3a2a2e;
-    color: #ff8e8e;
+    background: #2a3a2e;
+    color: #8effc1;
 }
 
 .chart-container {
