@@ -490,6 +490,7 @@ h1 {
     border: 1px solid #ff6b6b;
     box-shadow: 0 0 8px rgba(255, 107, 107, 0.3);
     transition: all 0.2s ease;
+    padding: 0.3rem 1rem;
 }
 
 .ban-stat-badge:hover {
@@ -501,12 +502,21 @@ h1 {
 
 .ban-stat-link {
     color: #ff8888 !important;
-    text-decoration: none;
+    text-decoration: none !important;
     font-weight: 600;
     letter-spacing: 0.3px;
+    background: none;
+    border: none;
 }
 
-.ban-stat-link::before {
-    content: "▸";
-    color: #ff6b6b;
+.ban-stat-link:hover {
+    color: #ffaaaa !important;
+    text-decoration: none !important;
+}
+
+.ban-stat-link:focus,
+.ban-stat-link:active,
+.ban-stat-link:visited {
+    text-decoration: none !important;
+    color: #ff8888 !important;
 }
