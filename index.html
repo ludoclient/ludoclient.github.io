@@ -3,118 +3,137 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LudoClient — официальный сайт</title>
-    <meta name="description" content="LudoClient — эксплоиты, обходы античитов и стабильный undetected-инжектор. Топовый чит по низкой цене. Лудомания!" />
+    <title>LudoClient — приватный инжектор и обходы античитов</title>
+    <meta name="description" content="LudoClient — приватный инжектор с обходами PaperPlate, NeoAC, NoHack и Valcuria для pvp.su. Ключ на железо, обновления под патчи." />
     <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/ludoclient/ludoclient/refs/heads/main/neon.png" />
     <link rel="stylesheet" href="sss.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 </head>
 <body>
-
     <div class="container">
 
         <!-- ===== HERO ===== -->
         <header class="hero">
-            <div class="logo-wrapper">
-                <img src="https://raw.githubusercontent.com/ludoclient/ludoclient/refs/heads/main/static.png" alt="LudoClient logo" class="logo-main" />
-                <img src="https://raw.githubusercontent.com/ludoclient/ludoclient/refs/heads/main/neon.png" alt="LudoClient neon" class="logo-neon" />
+            <div class="hero-copy">
+                <div class="brand">
+                    <img class="brand-mark" src="https://raw.githubusercontent.com/ludoclient/ludoclient/refs/heads/main/neon.png" alt="" />
+                    <span class="brand-name">ludoclient</span>
+                </div>
+                <h1>Приватный инжектор и обходы античитов</h1>
+                <p class="hero-sub">Эксплоиты для pvp.su с обходом PaperPlate, NeoAC, NoHack и Valcuria. Ключ привязывается к железу, обновления выходят под патчи.</p>
+                <div class="status-line">
+                    <span class="dot"></span>undetected · paperplate / neoac / nohack / valcuria
+                </div>
+                <div class="hero-actions">
+                    <a href="#pricing" class="btn btn-primary">Оформить подписку</a>
+                    <a href="/ban-stat" class="btn btn-ghost">Статистика банов</a>
+                </div>
             </div>
-            <h1>LudoClient</h1>
-            <p class="slogan">«Эксплоиты, обходы, лудомания — вот наше всё!»</p>
-            <div class="badge-group">
-                <span class="badge">UNDETECTED</span>
-                <span class="badge">PaperPlate / NeoAC / NoHack / Valcuria</span>
-                <span class="badge">+3,500 активных лудоманов</span>
-                <span class="badge ban-stat-badge"><a href="/ban-stat" class="ban-stat-link">Статистика банов</a></span>
+
+            <div class="hero-visual">
+                <div class="panel" aria-hidden="true">
+                    <div class="panel-bar">
+                        <span class="panel-dots"><i></i><i></i><i></i></span>
+                        <span class="panel-title">ludoclient · loader</span>
+                        <span class="panel-status">v2.1</span>
+                    </div>
+                    <div class="panel-body">
+                        <div class="ac-row"><span class="ac-name">paperplate</span><span class="ac-state">undetected</span></div>
+                        <div class="ac-row"><span class="ac-name">neoac</span><span class="ac-state">undetected</span></div>
+                        <div class="ac-row"><span class="ac-name">nohack</span><span class="ac-state">undetected</span></div>
+                        <div class="ac-row"><span class="ac-name">valcuria</span><span class="ac-state">undetected</span></div>
+                        <div class="log">
+                            <div class="log-line"><span class="log-t">12:04</span><b>inject → pvp.su</b></div>
+                            <div class="log-line"><span class="log-t">12:04</span><b>xltt-packet handshake ok</b></div>
+                            <div class="log-line"><span class="log-t">12:05</span><b>hwid bound · key GG.a1f9</b></div>
+                        </div>
+                        <div class="panel-foot">
+                            <span class="mono dim">ludik://GG.a1f9c2…</span>
+                            <span class="mono ok">ready</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </header>
 
         <!-- ===== PRICING ===== -->
-        <section class="pricing-section">
-            <div class="pricing-grid">
-                <!-- STATIC -->
-                <div class="plan-card glass">
-                    <div class="plan-header">
-                        <h2>STATIC <span class="light">подписка</span></h2>
-                        <div class="price-tag">
-                            <span class="currency">$</span><span class="price-num">0.99</span>
-                            <span class="period">/ месяц</span>
-                        </div>
-                        <div class="annual-price">Годовая подписка: <strong>$6</strong> <span class="save">экономия 49%</span></div>
+        <section class="pricing" id="pricing">
+            <div class="section-head">
+                <h2>Подписки</h2>
+                <p>Одна цена, ключ на ваше железо. Оформление за минуту.</p>
+            </div>
+            <div class="plans">
+
+                <article class="plan">
+                    <div class="plan-top">
+                        <h3>Static</h3>
+                        <div class="price"><span class="cur">$</span><span class="num">0.99</span><span class="per">/ мес</span></div>
+                        <div class="plan-meta">Годовая — <strong>$6</strong> · экономия 49%</div>
                     </div>
                     <ul class="features">
                         <li>Полный набор эксплоитов v2.1</li>
-                        <li>Обход PaperPlate / NeoAC / NoHack / Valcuria</li>
-                        <li>Инновационный эксплоиты от создателя</li>
-                        <li>Базовая поддержка Discord</li>
+                        <li>Обход PaperPlate, NeoAC, NoHack и Valcuria</li>
+                        <li>Эксплоиты от автора клиента</li>
+                        <li>Поддержка в Discord</li>
                     </ul>
-                    <button class="buy-btn" data-type="static" data-monthly="0.99" data-yearly="6">Приобрести Static</button>
-                </div>
+                    <button class="buy-btn btn btn-ghost btn-plan" data-type="static" data-monthly="0.99" data-yearly="6">Купить Static</button>
+                </article>
 
-                <!-- PRIME -->
-                <div class="plan-card prime glass">
-                    <div class="prime-ribbon">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                        РЕКОМЕНДУЕМ
-                    </div>
-                    <div class="plan-header">
-                        <h2>PRIME <span class="light">подписка</span></h2>
-                        <div class="price-tag">
-                            <span class="currency">$</span><span class="price-num">4</span>
-                            <span class="period">/ месяц</span>
-                        </div>
-                        <div class="annual-price">Годовая подписка: <strong>$12.50</strong> <span class="save">экономия 74%</span></div>
+                <article class="plan plan-prime">
+                    <span class="plan-flag">Рекомендуем</span>
+                    <div class="plan-top">
+                        <h3>Prime</h3>
+                        <div class="price"><span class="cur">$</span><span class="num">4</span><span class="per">/ мес</span></div>
+                        <div class="plan-meta">Годовая — <strong>$12.50</strong> · экономия 74%</div>
                     </div>
                     <ul class="features">
-                        <li>Автоматические обновления без переустановки</li>
-                        <li>Доступ к пре-релизам за 48 часов</li>
-                        <li>Специальная роль на Discord-сервере</li>
-                        <li>Личный текстовый канал с VanyaPro228</li>
-                        <li>Уважение от сообщества лудиков</li>
+                        <li>Автообновления без переустановки</li>
+                        <li>Пре-релизы за 48 часов</li>
+                        <li>Роль на Discord-сервере</li>
+                        <li>Личный канал с VanyaPro228</li>
                         <li>Ранний доступ к новым функциям</li>
                     </ul>
-                    <button class="buy-btn prime-btn" data-type="prime" data-monthly="4" data-yearly="12.50">Оформить Prime</button>
-                </div>
+                    <button class="buy-btn prime-btn btn btn-primary btn-plan" data-type="prime" data-monthly="4" data-yearly="12.50">Оформить Prime</button>
+                </article>
+
             </div>
         </section>
 
         <!-- ===== INFO ===== -->
-        <section class="info-section">
-            <div class="info-card glass">
-                <div class="info-icon">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-                </div>
+        <section class="info">
+            <div class="info-card">
+                <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
                 <h3>Приватный инжектор</h3>
-                <p>Собственная система инъекции с методом шифрации XLTT-Packet. Доступен во всех подписках LudoClient. Регулярные обновления под новые патчи популярных проектов как pvp.su</p>
+                <p>Собственная инъекция с шифрованием XLTT-Packet. Входит во все подписки. Обновляется под патчи проектов вроде pvp.su.</p>
             </div>
-            <div class="info-card glass">
-                <div class="info-icon">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
-                </div>
+            <div class="info-card">
+                <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
                 <h3>Безопасность</h3>
-                <p>100% конфиденциальность данных. Ключи активируются один раз и привязываются к вашему железу. Система автоматической выдачи ключей после оплаты.</p>
+                <p>Ключ активируется один раз и привязывается к железу. Данные не передаются третьим лицам, ключ выдаётся автоматически после оплаты.</p>
             </div>
         </section>
 
         <!-- ===== FOOTER ===== -->
         <footer class="footer">
-            <p>LudoClient — Все инструменты и программы предоставляются во блого тестирования систем.</p>
-            <div class="social-links">
-                <span>Discord: discord.gg/ludoclient</span>
-                <span>Telegram: @ludoclient_support</span>
-                <span>E-mail: support@ludoclient.com</span>
+            <p>Все инструменты предоставляются в целях тестирования систем.</p>
+            <div class="social">
+                <span>discord.gg/ludoclient</span>
+                <span>@ludoclient_support</span>
+                <span>support@ludoclient.com</span>
             </div>
-            <p class="copyright">© 2026 LudoClient. All rights reserved.</p>
+            <p class="copyright">© 2026 LudoClient</p>
         </footer>
 
     </div>
 
-    <!-- ===== MODAL ===== -->
+    <!-- ===== MODAL (IDs/classes preserved for lox.js) ===== -->
     <div id="paymentModal" class="modal">
-        <div class="modal-content glass">
-            <span class="close-modal">×</span>
+        <div class="modal-content">
+            <button class="close-modal" aria-label="Закрыть">×</button>
             <h3 id="modalTitle">Подписка Static на месяц</h3>
-            <p class="modal-sub">Заполните данные для оплаты. После успешного платежа ключ будет сгенерирован автоматически.</p>
+            <p class="modal-sub">Заполните данные карты. После оплаты ключ выдаётся автоматически.</p>
             <form id="paymentForm">
                 <div class="input-group">
                     <label>Имя держателя карты</label>
@@ -126,7 +145,7 @@
                 </div>
                 <div class="row-flex">
                     <div class="input-group half">
-                        <label>Срок действия (MM/YY)</label>
+                        <label>Срок действия</label>
                         <input type="text" id="expiry" placeholder="12/28" maxlength="5" required />
                     </div>
                     <div class="input-group half">
@@ -135,31 +154,24 @@
                     </div>
                 </div>
 
-                <!-- КАСТОМНЫЙ ВЫПАДАЮЩИЙ СПИСОК -->
                 <div class="custom-select" id="planSelectWrapper">
                     <div class="custom-select-trigger" id="planSelectTrigger">
                         <span id="selectedPlanText">Месячная подписка — $0.99</span>
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
                     </div>
-                    <ul class="custom-select-options" id="planSelectOptions">
-                        <!-- опции будут вставлены через JS -->
-                    </ul>
+                    <ul class="custom-select-options" id="planSelectOptions"></ul>
                 </div>
-                <!-- скрытый select для хранения значения -->
                 <select id="planSelect" style="display:none;"></select>
 
                 <div id="paymentAmount" class="payment-amount">Сумма к оплате: $0.99</div>
                 <button type="submit" class="generate-key-btn" id="payButton">Оплатить и получить ключ</button>
             </form>
             <div id="keyResult" class="key-result hidden">
-                <div class="key-success-icon">
-                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                </div>
-                <p>Платеж успешно обработан!</p>
-                <p class="key-label">Ваш лицензионный ключ LudoClient:</p>
+                <p>Платёж обработан. Ваш ключ LudoClient:</p>
+                <p class="key-label">Лицензионный ключ</p>
                 <code id="generatedKey">ludik://GG.xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</code>
-                <button id="copyKeyBtn" class="copy-btn">Копировать ключ в буфер</button>
-                <p class="key-warning">Сохраните ключ. Он будет активирован при первом входе в лаунчер.</p>
+                <button id="copyKeyBtn" class="copy-btn">Копировать ключ</button>
+                <p class="key-warning">Ключ активируется при первом входе в лаунчер и привязывается к железу.</p>
             </div>
         </div>
     </div>

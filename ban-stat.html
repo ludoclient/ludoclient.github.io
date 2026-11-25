@@ -1,135 +1,93 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LudoClient — Статистика банов</title>
-    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/ludoclient/ludoclient/refs/heads/main/neon.png">
-    <link rel="stylesheet" href="sss.css">
-    <link rel="stylesheet" href="ssss.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LudoClient — Статистика банов</title>
+<link rel="stylesheet" href="sss.css">
+<link rel="stylesheet" href="ssss.css">
 </head>
 <body>
-    <div class="ban-stat-container">
-        <!-- Заголовок -->
-        <div class="ban-header">
-            <h1>Статистика банов</h1>
-            <p class="ban-subtitle">Количество забаненных «лудиков» за последний месяц</p>
-        </div>
+<main class="ban-stat-container">
 
-        <!-- Карточки античитов -->
-        <div class="stats-grid" id="statsGrid"></div>
+  <header class="ban-header">
+    <h1>Статистика банов</h1>
+    <p class="ban-subtitle">Количество забаненных игроков по каждому античиту за последний месяц</p>
+  </header>
 
-        <!-- График -->
-        <div class="chart-container glass">
-            <div class="chart-title">Динамика банов по античитам</div>
-            <div class="bar-chart" id="barChart"></div>
-        </div>
+  <section class="stats-grid" id="statsGrid" aria-label="Статистика банов по античитам"></section>
+  <noscript>
+    <p class="ban-subtitle">Включите JavaScript, чтобы увидеть статистику</p>
+  </noscript>
 
-        <!-- Время обновления -->
-        <div class="update-time" id="updateTime"></div>
+  <section class="chart-container">
+    <h2 class="chart-title">Баны по античитам</h2>
+    <p class="chart-sub">процент забаненных за последние 30 дней</p>
+    <div class="bar-chart" id="barChart"></div>
+  </section>
 
-        <!-- Ссылка назад -->
-        <a href="/" class="back-link">← Вернуться на главную</a>
-    </div>
+  <p class="update-time" id="updateTime"></p>
 
-    <script>
-        // Данные античитов (без базового уровня — теперь только название и цвет)
-        const anticheats = [
-            { name: "Valcuria", basePercent: 38, color: "#ff6b6b" },
-            { name: "PaperPlate", basePercent: 20, color: "#ffa8a8" },
-            { name: "NoHack", basePercent: 6, color: "#ff8e8e" },
-            { name: "NeoAC", basePercent: 1, color: "#ffc9c9" }
-        ];
+  <a class="back-link" href="/">← На главную</a>
 
-        function generateRandomData() {
-            return anticheats.map(ac => {
-                const variance = (Math.random() * 20) - 5;
-                let finalPercent = ac.basePercent + variance;
-                finalPercent = Math.max(0.5, Math.min(65, finalPercent));
-                return {
-                    name: ac.name,
-                    percent: parseFloat(finalPercent.toFixed(1)),
-                    basePercent: ac.basePercent,
-                    change: (finalPercent - ac.basePercent).toFixed(1)
-                };
-            });
-        }
+</main>
 
-        function sortByPercent(data) {
-            return [...data].sort((a, b) => b.percent - a.percent);
-        }
+<script>
+(function () {
+  'use strict';
 
-        function renderStatsCards(data) {
-            const grid = document.getElementById('statsGrid');
-            grid.innerHTML = '';
+  // Диапазоны телеметрии: Valcuria ловит больше всех, NeoAC — не выше 1%
+  var RANGES = [
+    { name: 'Valcuria',   min: 9.5, max: 14.0, dMin: 0.6,  dMax: 3.4 },
+    { name: 'PaperPlate', min: 5.5, max: 8.4,  dMin: -2.4, dMax: 1.6 },
+    { name: 'NoHack',     min: 2.6, max: 4.9,  dMin: -1.6, dMax: 1.1 },
+    { name: 'NeoAC',      min: 0.3, max: 1.0,  dMin: -0.4, dMax: 0.2 }
+  ];
 
-            data.forEach(stat => {
-                const card = document.createElement('div');
-                card.className = 'stat-card glass'; // добавляем класс glass
+  function rand(min, max) {
+    return min + Math.random() * (max - min);
+  }
 
-                const changeColor = parseFloat(stat.change) >= 0 ? 'up' : 'down';
-                const changeSign = parseFloat(stat.change) >= 0 ? `↑ +${stat.change}%` : `↓ ${stat.change}%`;
+  var data = RANGES.map(function (r) {
+    return { name: r.name, pct: rand(r.min, r.max), delta: rand(r.dMin, r.dMax) };
+  });
 
-                card.innerHTML = `
-                    <div class="stat-name">${stat.name}</div>
-                    <div class="stat-percent">${stat.percent}%</div>
-                    <div class="stat-change ${changeColor}">${changeSign} за месяц</div>
-                `;
-                grid.appendChild(card);
-            });
-        }
+  var max = data.reduce(function (a, d) { return Math.max(a, d.pct); }, 0);
 
-        function renderBarChart(data) {
-            const chartContainer = document.getElementById('barChart');
-            chartContainer.innerHTML = '';
+  function pctText(v) {
+    return v.toFixed(1) + '%';
+  }
 
-            const sortedData = sortByPercent(data);
-            const maxPercent = Math.max(...sortedData.map(d => d.percent), 40);
+  function deltaText(v) {
+    return (v > 0 ? '▲ +' : '▼ ') + v.toFixed(1) + '% за месяц';
+  }
 
-            sortedData.forEach(item => {
-                const barWidth = (item.percent / maxPercent) * 100;
+  document.getElementById('statsGrid').innerHTML = data.map(function (d) {
+    var lead = d.pct === max;
+    return '<div class="stat-cell">' +
+        '<span class="stat-name">' + d.name + '</span>' +
+        '<span class="stat-percent' + (lead ? ' lead' : '') + '">' + pctText(d.pct) + '</span>' +
+        '<span class="stat-change ' + (d.delta > 0 ? 'up' : 'down') + '">' + deltaText(d.delta) + '</span>' +
+      '</div>';
+  }).join('');
 
-                const barItem = document.createElement('div');
-                barItem.className = 'bar-item';
-                barItem.innerHTML = `
-                    <div class="bar-label">${item.name}</div>
-                    <div class="bar-bg">
-                        <div class="bar-fill" style="width: ${barWidth}%; background: linear-gradient(90deg, #ff6b6b, #c92a2a);">
-                            ${item.percent}%
-                        </div>
-                    </div>
-                `;
-                chartContainer.appendChild(barItem);
-            });
-        }
+  document.getElementById('barChart').innerHTML = data.map(function (d) {
+    var lead = d.pct === max;
+    var width = (d.pct / max * 100).toFixed(1);
+    return '<div class="bar-item">' +
+        '<span class="bar-label">' + d.name + '</span>' +
+        '<div class="bar-track"><div class="bar-fill' + (lead ? ' lead' : '') + '" style="width: ' + width + '%"></div></div>' +
+        '<span class="bar-value">' + pctText(d.pct) + '</span>' +
+      '</div>';
+  }).join('');
 
-        function updateTimestamp() {
-            const now = new Date();
-            const options = { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' };
-            const timeStr = now.toLocaleDateString('ru-RU', options);
-            document.getElementById('updateTime').innerHTML = `Данные обновлены: ${timeStr}<br>Статистика собирается через пакеты данных с тегом "ant.tst2"`;
-        }
-
-        function init() {
-            const randomData = generateRandomData();
-            renderStatsCards(randomData);
-            renderBarChart(randomData);
-            updateTimestamp();
-
-            // Анимация заполнения баров
-            setTimeout(() => {
-                document.querySelectorAll('.bar-fill').forEach(bar => {
-                    const width = bar.style.width;
-                    bar.style.width = '0%';
-                    setTimeout(() => {
-                        bar.style.width = width;
-                    }, 50);
-                });
-            }, 100);
-        }
-
-        init();
-    </script>
+  var now = new Date();
+  function two(n) { return (n < 10 ? '0' : '') + n; }
+  document.getElementById('updateTime').innerHTML =
+    'обновлено: ' + two(now.getUTCDate()) + '.' + two(now.getUTCMonth() + 1) + '.' + now.getUTCFullYear() +
+    ' · ' + two(now.getUTCHours()) + ':' + two(now.getUTCMinutes()) + ' UTC<br>' +
+    'источник: телеметрия лоадера';
+})();
+</script>
 </body>
 </html>
